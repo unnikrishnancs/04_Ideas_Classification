@@ -37,7 +37,8 @@ for loc in localities:
 			print()
 		if i==2:
 			try:
-				BHK1_minPrice=col.find("span",itemprop="minPrice").text	
+				#Ex. convert "5,000" to 5000
+				BHK1_minPrice=(col.find("span",itemprop="minPrice").text).replace(",","")
 			except AttributeError:
 				BHK1_minPrice="nan"	
 			except:
@@ -46,7 +47,7 @@ for loc in localities:
 			print("1BHK minPrice",BHK1_minPrice)	
 			
 			try:	
-				BHK1_maxPrice=col.find("span",itemprop="maxPrice").text
+				BHK1_maxPrice=(col.find("span",itemprop="maxPrice").text).replace(",","")
 			except AttributeError:
 				BHK1_maxPrice="nan"
 			except:
@@ -55,7 +56,7 @@ for loc in localities:
 			#convert to float
 		if i==3:
 			try:
-				BHK1_avgrent=col.text
+				BHK1_avgrent=((col.text).strip()).replace(",","")
 			except AttributeError:
 				BHK1_avgrent="nan"
 			except :
@@ -66,7 +67,7 @@ for loc in localities:
 			print()
 		if i==4:
 			try:
-				BHK2_minPrice=col.find("span",itemprop="minPrice").text
+				BHK2_minPrice=(col.find("span",itemprop="minPrice").text).replace(",","")
 			except AttributeError:
 				BHK2_minPrice="nan"
 			except :
@@ -75,7 +76,7 @@ for loc in localities:
 			print("2BHK minPrice",BHK2_minPrice)
 			
 			try:	
-				BHK2_maxPrice=col.find("span",itemprop="maxPrice").text
+				BHK2_maxPrice=(col.find("span",itemprop="maxPrice").text).replace(",","")
 			except AttributeError:
 				BHK2_maxPrice="nan"
 			except:
@@ -85,7 +86,7 @@ for loc in localities:
 			#convert to float
 		if i==5:
 			try:
-				BHK2_avgrent=col.text
+				BHK2_avgrent=((col.text).strip()).replace(",","")
 			except AttributeError:
 				BHK2_avgrent="nan"
 			except :
@@ -96,7 +97,7 @@ for loc in localities:
 			print()
 		if i==6:
 			try:
-				BHK3_minPrice=col.find("span",itemprop="minPrice").text
+				BHK3_minPrice=(col.find("span",itemprop="minPrice").text).replace(",","")
 			except AttributeError:
 				BHK3_minPrice="nan"
 			except :
@@ -105,7 +106,7 @@ for loc in localities:
 			print("3BHK minPrice",BHK3_minPrice)
 			
 			try:
-				BHK3_maxPrice=col.find("span",itemprop="maxPrice").text
+				BHK3_maxPrice=(col.find("span",itemprop="maxPrice").text).replace(",","")
 			except AttributeError:
 				BHK3_maxPrice="nan"
 			except:
@@ -115,7 +116,7 @@ for loc in localities:
 			#convert to float
 		if i==7:
 			try:
-				BHK3_avgrent=col.text
+				BHK3_avgrent=((col.text).strip()).replace(",","")
 			except AttributeError:
 				BHK3_avgrent="nan"
 			except :
