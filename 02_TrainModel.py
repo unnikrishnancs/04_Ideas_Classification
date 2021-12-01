@@ -8,7 +8,7 @@ from sklearn.model_selection import train_test_split
 
 #to display all rows and cols
 #pd.set_option('display.max_columns',10)
-#pd.set_option('display.max_rows',None)
+pd.set_option('display.max_rows',None)
 
 #=========================
 #import data from csv file
@@ -44,7 +44,7 @@ for col in data.select_dtypes("object"):
 		print(col, data[col].dtype)
 		data[col]=data[col].astype(int)
 
-data.info()
+data.info() #175
 
 
 
@@ -54,7 +54,8 @@ data.info()
 
 #handle nan values...ANY OTHER WAY TO HANDLE NaNs
 data=data.dropna()
-data.info()
+#data.dropna(inplace=True)
+data.info() #133
 print()
 
 #========================================================================
@@ -77,15 +78,20 @@ print()
 #transform into one hot encoding
 data_new=ohe.transform(data[["Locality"]]).toarray()
 data_newdf=pd.DataFrame(data=data_new,columns=ohe.get_feature_names_out())
-print(data_newdf.head())
+print(data_newdf) #133 rows
 print()
+#data_newdf.to_csv("locality.csv")
+
 
 #join input features
 print("Input features concatenated")
-data_features_final=pd.concat([data_newdf,data[["MinPrice","MaxPrice","AvgRent"]]],axis=1)
-print(data_features_final.head())
+data_features_final=pd.concat([data_newdf,data[["MinPrice","MaxPrice","AvgRent"]]],axis=1,ignore_index=True) # ,join="inner", ignore_index=True
+print(data_features_final.head()) #166
 print()
+data_features_final.to_csv("data_features_final.csv")
 
+
+'''
 #=================================================
 #convert categorical to numeric (LABELS / CLASSES)
 #=================================================
@@ -108,8 +114,8 @@ data_final=pd.concat([data_features_final,pd.Series(data_out)],axis=1)
 print(data_final.head())
 print(data.info())
 print()
-
-
+data_final.to_csv("data_final.csv")
+'''
 
 '''
 #====================
@@ -158,3 +164,4 @@ predict_y=model.predict(test_x)
 #print confusion matrix
 print(confusion_matrix(test_y,predict_y))
 '''
+
