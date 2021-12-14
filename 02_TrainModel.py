@@ -8,20 +8,23 @@ from sklearn.model_selection import train_test_split
 
 #to display all rows and cols
 #pd.set_option('display.max_columns',10)
-pd.set_option('display.max_rows',None)
+#pd.set_option('display.max_rows',None)
 
-#=========================
+#$$$$$$$$$$$$$$$$$$$$$$$$$
+#$$$$$$$$$$$$$$$$$$$$$$$$
 #import data from csv file
-#=========================
+#$$$$$$$$$$$$$$$$$$$$$$$$$
+#$$$$$$$$$$$$$$$$$$$$$$$$$
 
 data=pd.read_csv("bangalore_rentdtls_updt.csv",na_values=["-"])
+#data=pd.read_csv("20rows_bangalore_rentdtls_updt.csv",na_values=["-"])
 print(data.head())
 
 #column data types and non-null values
 data.info()
 
 #summary of numeric columans
-print(data.describe())
+#print(data.describe())
 
 # ???????? TRY TO FIND SOLN....handle "L" (for Lakhs in "4.5 L") in MinPrice and MaxPrice columsn ....FOR NOW, DELETE IT MANUALLY
 #
@@ -33,9 +36,11 @@ print(data.describe())
 #
 #
 
-#==============
-#pre-processing 
-#==============
+#$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$#$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+#$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+#-------------------------PRE-PROCESSING--------------------------
+#$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+#$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
 #rent cols to int
 for col in data.select_dtypes("object"):
@@ -44,8 +49,7 @@ for col in data.select_dtypes("object"):
 		print(col, data[col].dtype)
 		data[col]=data[col].astype(int)
 
-data.info() #175
-
+data.info() #
 
 
 #handle outliers
@@ -55,12 +59,14 @@ data.info() #175
 #handle nan values...ANY OTHER WAY TO HANDLE NaNs
 data=data.dropna()
 #data.dropna(inplace=True)
-data.info() #133
+data.info() #
+print(data)
 print()
 
-#========================================================================
-#convert categorical to numeric (INPUT FEATURES)...locality and housetype
-#========================================================================
+
+#=========================================
+#Handle categorical value (INPUT FEATURES)
+#=========================================
 
 # NOTE : *** this conversion to be put into NEW module / class and call it ***
 
@@ -78,73 +84,89 @@ print()
 #transform into one hot encoding
 data_new=ohe.transform(data[["Locality"]]).toarray()
 data_newdf=pd.DataFrame(data=data_new,columns=ohe.get_feature_names_out())
-print(data_newdf) #133 rows
+print(data_newdf)
 print()
-#data_newdf.to_csv("locality.csv")
 
+df_price=data[["MinPrice","MaxPrice","AvgRent"]]
+print(type(df_price), df_price)
+df_price=df_price.reset_index(drop=True) # see what happens if you dont use this
+print(type(df_price), df_price)
 
 #join input features
 print("Input features concatenated")
-data_features_final=pd.concat([data_newdf,data[["MinPrice","MaxPrice","AvgRent"]]],axis=1,ignore_index=True) # ,join="inner", ignore_index=True
-print(data_features_final.head()) #166
+data_features_final=pd.concat([data_newdf,df_price],axis=1)
+#print(data_features_final.head())
+print(data_features_final)
 print()
-data_features_final.to_csv("data_features_final.csv")
+
+#===================================
+#scale the feature vector X (inputs)
+#===================================
+ss=StandardScaler()
+data_features_final=pd.DataFrame(data=ss.fit_transform(data_features_final))
+print("After Scaling")
+print(data_features_final.head())
 
 
-'''
-#=================================================
-#convert categorical to numeric (LABELS / CLASSES)
-#=================================================
+#============================================
+# Handle categorical values (OUTPUT / TARGET)
+#============================================
 
+''' 
+print("WITHOUT LabelBinarizer")
 le=LabelEncoder()
 le.fit(data["HouseType"])
 print(le.classes_)
 data_out=le.transform(data["HouseType"])
-print(data_out[:6])
+#print(data_out[:6])
+print(data_out)
+print()
+'''
+
+print("WITH LabelBinarizer")
+lb=LabelBinarizer()
+lb.fit(data["HouseType"])
+print(lb.classes_)
+data_out=lb.transform(data["HouseType"])
+print(type(data_out), data_out[:6])
+#print(data_out)
 print()
 
 
-# TO DO....
-#try with and without LabelBinarizer
-#feature scaling (run model WITH / WITHOUT feature scaling)
 
 #join all the columsn into one (i:e input features + class))
 print("Final dataset before training")
-data_final=pd.concat([data_features_final,pd.Series(data_out)],axis=1)
-print(data_final.head())
-print(data.info())
+#data_final=pd.concat([data_features_final,pd.Series(data_out)],axis=1) # before using LabelBinarizer
+data_final=pd.concat([data_features_final,pd.DataFrame(data_out)],axis=1) # after using LabelBinarizer
+print(data_final)
+#print(data_final.info())
 print()
-data_final.to_csv("data_final.csv")
-'''
 
-'''
-#====================
-#Define X and y
-#====================
+
+#$$$$$$$$$$$$$$$$$$$$$
+#$$$$$$$$$$$$$$$$$$$$$
+#-----Define X and y
+#$$$$$$$$$$$$$$$$$$$$$
+#$$$$$$$$$$$$$$$$$$$$$
 
 X=data_final.iloc[:,:-1]
-#print(X.head())
+print(X.head())
 
 y=data_final.iloc[:,-1]
-#print(y[:5])
+print(y[:5])
 print()
 
 #print(data_final.describe())
-#pd.set_option('display.max_columns',10)
-#pd.set_option('display.max_rows',None)
 #print(data_final[0].value_counts())
 data_final.to_csv("exported_data_final.csv")
 
-#==================================
-#split data into Train and Test set
-#==================================
+#$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+#$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+#--------------train model-----------------
+#$$$$$$$$$$$$$$$$$$$$$#$$$$$$$$$$$$$$$$$$$$$
+#$$$$$$$$$$$$$$$$$$$$$#$$$$$$$$$$$$$$$$$$$$$
 
 train_x,test_x,train_y,test_y=train_test_split(X,y,test_size=0.2,random_state=2)
-
-
-#===========
-#train model
-#===========
 
 print(type(train_x),type(train_y))
 model=LogisticRegression()
@@ -152,16 +174,51 @@ model.fit(train_x,train_y)
 
 
 
-#=======
-#predict
-#=======
-predict_y=model.predict(test_x)
+#$$$$$$$$$$$$$$$$$$$$$$
+#$$$$$$$$$$$$$$$$$$$$$$
+#-------predict--------
+#$$$$$$$$$$$$$$$$$$$$$$
+#$$$$$$$$$$$$$$$$$$$$$$
 
-#=======
-#metrixs
-#=======
+#print("Test Data")
+#print(test_x)
+predict_train_y=model.predict(train_x)
+predict_test_y=model.predict(test_x)
 
-#print confusion matrix
-print(confusion_matrix(test_y,predict_y))
-'''
+
+#$$$$$$$$$$$$$$$$$$$$$$
+#$$$$$$$$$$$$$$$$$$$$$$
+#------metrics---------
+#$$$$$$$$$$$$$$$$$$$$$$
+#$$$$$$$$$$$$$$$$$$$$$$
+
+# TRAIN DATA
+print("confusion matrix for TRAIN data")
+print(confusion_matrix(train_y,predict_train_y))
+print()
+
+print("accuracy score for TRAIN data")
+print("Accuracy Score : %.2f "%accuracy_score(train_y,predict_train_y))
+print()
+print()
+
+# TEST DATA
+print("confusion matrix for TEST data")
+print(confusion_matrix(test_y,predict_test_y))
+print()
+
+print("accuracy score for TEST data")
+print("Accuracy Score : %.2f "%accuracy_score(test_y,predict_test_y))
+
+#feature scaling (run model WITH / WITHOUT feature scaling)
+# WITHOUT scaling : train acc - 45 % , test acc - 41 %
+# WITH scaling : train acc - 99 % test acc - 41 %
+# WITHOUT scaling but WITH labelbinarizer : train acc - 71 % test acc - 67 %
+# WITH scaling and WITH labelbinarizer : train acc - 100 % test acc -85 %
+
+# to do
+# ...inverse transofmr test data and see which are new data 
+# ...try to visualize data
+# ....plot Roc
+
 

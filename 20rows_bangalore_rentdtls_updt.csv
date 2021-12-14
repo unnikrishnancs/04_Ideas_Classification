@@ -1,0 +1,9 @@
+Locality,MinPrice,MaxPrice,AvgRent,HouseType
+Whitefield,4500,20000,1076.46,1BHK
+Whitefield,7500,50000,18433.77,2BHK
+Whitefield,20000,29800,2566.67,3BHK
+Krishnarajapura,3000,10900,7466.96,1BHK
+Krishnarajapura,12000,34400,21350,3BHK
+Sarjapur,5000,nan,5000,1BHK
+Sarjapur,10500,12000,11250,2BHK
+Sarjapur,16500,nan,16500,3BHK
