@@ -1,13 +1,10 @@
-import pandas as pd
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import confusion_matrix, accuracy_score
-from sklearn.preprocessing  import OneHotEncoder, LabelEncoder,LabelBinarizer
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
 from sklearn.svm import SVC
-import matplotlib.pyplot as plt
 import numpy as np
-
+from UtilityFunctions import *
 
 #to display all rows and cols
 #pd.set_option('display.max_columns',10)
@@ -20,38 +17,13 @@ import numpy as np
 #$$$$$$$$$$$$$$$$$$$$$$$$$
 
 data=pd.read_csv("bangalore_rentdtls_updt.csv",na_values=["-"])
-print(data.head())
+#print(data.head())
+data.info() #column data types and non-null values
+#print(data.describe()) #summary of numeric columans
 
-'''
-#plot the data
-data=pd.read_csv("ForPlot_bangalore_rentdtls_updt.csv",na_values=["-"])
-loc=data.iloc[:,[0,3,4]]
-print(type(loc),loc)
-plt.scatter(loc["Locality"], loc["AvgRent"], c=loc["HouseType"])
-plt.legend()
-plt.xlabel("Locality ->")
-plt.ylabel("Avg. Rent ->")
-plt.xticks(rotation=45)
-plt.title("Average Rent across localities in Bangalore (1BHK, 2BHK, 3BHK)")
-plt.tight_layout()
-plt.show() 
-'''
+#plot the data......DIFFETENT DATASET USED
+#plot_data()
 
-#column data types and non-null values
-data.info()
-
-#summary of numeric columans
-#print(data.describe())
-
-# ???????? TRY TO FIND SOLN....handle "L" (for Lakhs in "4.5 L") in MinPrice and MaxPrice columsn ....FOR NOW, DELETE IT MANUALLY
-#
-#drop rows having "L" (lakh) in either minprice, maxprice or avg rent
-#print("---&&&&&&&&&&--")
-#print(data.query("'*L*' in MaxPrice"))
-#print(data["MaxPrice"].str.contains("L"))
-#print("---&&&&&&&&&&--")
-#
-#
 
 #$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$#$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 #$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
@@ -59,65 +31,20 @@ data.info()
 #$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 #$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
-'''
-#rent cols to int
-for col in data.select_dtypes("object"):
-	print("INSIDE -> rent cols to int")
-	#if col in ("MinPrice","MaxPrice","AvgRent"):
-	if col in ("MinPrice"):
-		print(col, data[col].dtype)
-		data[col]=data[col].astype(int)
+data_newdf=data_preprocessing(data)
 
-data.info() #
-'''
-
-#handle outliers
-
-#handle values like "8 L" for 800000
-
-#handle nan values...ANY OTHER WAY TO HANDLE NaNs
-data=data.dropna()
-#data.dropna(inplace=True)
-data.info() #
-print(data)
-print()
-
-
-#=========================================
-#Handle categorical value (INPUT FEATURES)
-#=========================================
-
-# NOTE : *** this conversion to be put into NEW module / class and call it ***
-
-ohe=OneHotEncoder()
-
-#fit
-ohe.fit(data[["Locality"]])
-print("Identified Categories")
-print(ohe.categories_)
-print()
-print("Feature Names")
-print(ohe.get_feature_names_out())
-print()
-
-#transform into one hot encoding
-data_new=ohe.transform(data[["Locality"]]).toarray()
-data_newdf=pd.DataFrame(data=data_new,columns=ohe.get_feature_names_out())
-print(data_newdf)
-print()
-
+#to make it concat friendly
 df_price=data[["MinPrice","MaxPrice","AvgRent"]]
-print(type(df_price), df_price)
 df_price=df_price.reset_index(drop=True) # see what happens if you dont use this
-print(type(df_price), df_price)
 
 #join input features
 print("Input features concatenated")
 data_features_final=pd.concat([data_newdf,df_price],axis=1)
-#print(data_features_final.head())
 print(data_features_final)
 print()
 
+
+'''
 #===================================
 #scale the feature vector X (inputs)
 #===================================
@@ -130,7 +57,7 @@ print(data_features_final.head())
 #============================================
 # Handle categorical values (OUTPUT / TARGET)
 #============================================
-
+'''
 
 ''' 
 print("WITHOUT LabelBinarizer")
@@ -141,7 +68,7 @@ data_out=le.transform(data["HouseType"])
 #print(data_out[:6])
 print(data_out)
 print()
-'''
+
 
 print("WITH LabelBinarizer")
 lb=LabelBinarizer()
@@ -151,8 +78,13 @@ data_out=lb.transform(data["HouseType"])
 print(type(data_out), data_out[:6])
 #print(data_out)
 print()
+'''
 
 
+
+
+'''
+data_out=convert_labels_to_num(data)
 
 #join all the columsn into one (i:e input features + class))
 print("Final dataset before training")
@@ -161,8 +93,14 @@ data_final=pd.concat([data_features_final,pd.DataFrame(data_out)],axis=1) # afte
 print(data_final)
 #print(data_final.info())
 print()
+'''
 
 
+
+
+
+
+'''
 #$$$$$$$$$$$$$$$$$$$$$
 #$$$$$$$$$$$$$$$$$$$$$
 #-----Define X and y
@@ -248,4 +186,7 @@ print("Accuracy Score : %.2f "%accuracy_score(test_y,predict_test_y))
 # ...inverse transofmr test data and see which are new data 
 # ...//try to visualize data
 # ....modularize code...func to pre-process, train , pass new data (Ex. loc,minrent,max rent) and pre-process and predict
+'''
+
+
 
