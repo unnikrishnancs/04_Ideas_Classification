@@ -1,6 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.preprocessing  import OneHotEncoder, LabelEncoder,LabelBinarizer
+from sklearn.preprocessing import StandardScaler
 
 
 if __name__=="__main__":
@@ -16,39 +17,48 @@ def predict_newdata():
 	
 		
 def data_preprocessing(data):
-	print("handle nan values...ANY OTHER WAY TO HANDLE NaNs")	
+	print("------------Handle NaN value-----------")	
 	data=data.dropna()
 	data.info()
 	print()
 	
-	print("Handle categorical value (INPUT FEATURES)")
+	print("-----------Handle categorical value (INPUT FEATURES)----------------")
 	ohe=OneHotEncoder()
 	ohe.fit(data[["Locality"]])
-	print("Identified Categories: \n",ohe.categories_,"\n Feature Names : \n",ohe.get_feature_names_out())
+	#print("-----------Identified Categories: \n",ohe.categories_,"\n Feature Names : \n",ohe.get_feature_names_out())
 	print()	
 	data_new=ohe.transform(data[["Locality"]]).toarray()
 	data_newdf=pd.DataFrame(data=data_new,columns=ohe.get_feature_names_out())
-	print(data_newdf)
+	#print(data_newdf)
 	print()
 	return data_newdf
 	
 
-#Input Features....convert categorical to numeric
-def convert_catfeat_to_num():
-	pass
-
+def scale_features(data):
+	ss=StandardScaler()
+	data=pd.DataFrame(data=ss.fit_transform(data))
+	return data
 
 #convert labels/target to numeric
-def convert_labels_to_num(data):
-	print("WITH LabelBinarizer")
-	lb=LabelBinarizer()
-	lb.fit(data["HouseType"])
-	print(lb.classes_)
-	data_out=lb.transform(data["HouseType"])
-	print(type(data_out), data_out[:6])
-	#print(data_out)
+def convert_labels_to_num(data,method="LB"):
+	if method=="LB":
+		print("-----------WITH LabelBinarizer------------")
+		lb=LabelBinarizer()
+		lb.fit(data["HouseType"])
+		print(lb.classes_)
+		data=lb.transform(data["HouseType"])
+		print(type(data), data[:6])
+		#print(data)
+	else :
+		print("-----------WITH LabelEncoder-------------")
+		le=LabelEncoder()
+		le.fit(data["HouseType"])
+		print(le.classes_)
+		data=le.transform(data["HouseType"])
+		print(type(data), data[:6])
+		
 	print()
-	return 
+	return data
 
 #plot the data	...DIFFETENT DATASET USED
 def plot_data():	
@@ -64,3 +74,5 @@ def plot_data():
 	plt.tight_layout()
 	plt.show() 
 	
+	
+
