@@ -17,21 +17,36 @@ def predict_newdata():
 	
 		
 def data_preprocessing(data):
-	print("------------Handle NaN value-----------")	
+	#print("------------Handle NaN value-----------")	
 	data=data.dropna()
 	data.info()
+	data_bkup=data
 	print()
 	
-	print("-----------Handle categorical value (INPUT FEATURES)----------------")
+	#print("-----------Handle categorical value (INPUT FEATURES)----------------")
 	ohe=OneHotEncoder()
 	ohe.fit(data[["Locality"]])
 	#print("-----------Identified Categories: \n",ohe.categories_,"\n Feature Names : \n",ohe.get_feature_names_out())
-	print()	
+	#print()	
 	data_new=ohe.transform(data[["Locality"]]).toarray()
 	data_newdf=pd.DataFrame(data=data_new,columns=ohe.get_feature_names_out())
 	#print(data_newdf)
+	#print()
+	
+	#to make it concat friendly
+	#print("--------df_price...Price details after re-indexing------")
+	df_price=data[["MinPrice","MaxPrice","AvgRent"]]
+	df_price=df_price.reset_index(drop=True) # see what happens if you dont use this
+	#print(df_price)
+	#print()
+
+	#join input features
+	print("---------------Input features concatenated---------------")
+	data_features_final=pd.concat([data_newdf,df_price],axis=1)
+	#print(data_features_final)
 	print()
-	return data_newdf
+		
+	return data_features_final,data_bkup
 	
 
 def scale_features(data):

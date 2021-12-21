@@ -34,17 +34,25 @@ print(data.isnull().sum())
 #-------PRE-PROCESSING------------
 #$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
-data_newdf=data_preprocessing(data)
+#print("--------------data_newdf...after pre-processing (except MinPrice,MaxPrice,AvgRent---------------")
+data_features_final,data_bkup=data_preprocessing(data)
+print(data_features_final)
+print()
 
+'''
 #to make it concat friendly
+print("--------df_price...Price details after re-indexing------")
 df_price=data[["MinPrice","MaxPrice","AvgRent"]]
 df_price=df_price.reset_index(drop=True) # see what happens if you dont use this
+print(df_price)
+print()
 
 #join input features
 print("---------------Input features concatenated---------------")
 data_features_final=pd.concat([data_newdf,df_price],axis=1)
 print(data_features_final)
 print()
+'''
 
 
 '''
@@ -64,7 +72,7 @@ print(data_features_final.head())
 print("----------Convert label to numeric---------------")
 
 #use LabelEncoder
-data_out=convert_labels_to_num(data,"LE")
+data_out=convert_labels_to_num(data_bkup,"LE")
 
 #use LabelBinarizer
 #data_out=convert_labels_to_num(data,"LB")
@@ -74,11 +82,11 @@ data_out=convert_labels_to_num(data,"LE")
 #join all the columsn into one (i:e input features + class))
 #===========================================================
 
-print("-------------Final dataset before training (first 6 rows)----------------")
+print("-------------Final dataset before training----------------")
 
 #If LabelEncoder used
 data_final=pd.concat([data_features_final,pd.Series(data_out)],axis=1) 
-print(data_final[:6])
+print(data_final)
 
 #If LabelBinarizer used
 #data_final=pd.concat([data_features_final,pd.DataFrame(data_out)],axis=1) # after using LabelBinarizer (DataFrame object)
