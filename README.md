@@ -3,10 +3,7 @@ objective
 
 Based on the below input features :- 
 
--locality
--min price
--max price
--avg rent
+-locality ; min price ; max price ; avg rent
 
 predict 
 
