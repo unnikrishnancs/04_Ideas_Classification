@@ -1,13 +1,12 @@
 from sklearn.metrics import confusion_matrix, accuracy_score
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
-from sklearn.svm import SVC
 import numpy as np
 from UtilityFunctions import *
 
 #to display all rows and cols
 #pd.set_option('display.max_columns',10)
-pd.set_option('display.max_rows',None)
+#pd.set_option('display.max_rows',None)
 
 
 #$$$$$$$$$$$$$$$$$$$$$$$$
@@ -15,12 +14,21 @@ pd.set_option('display.max_rows',None)
 #$$$$$$$$$$$$$$$$$$$$$$$$$
 
 data=pd.read_csv("bangalore_rentdtls_updt.csv",na_values=["-"])
-#print(data.head())
-data.info() #column data types and non-null values
+
+print("-------------Top 5 rows---------------")
+print()
+print(data.head())
+print()
+print("-------------row count, no. of cols, column data types, non-null values, distri. of datatypes, memory usage---------------")
+print()
+data.info()
 print()
 print("-------------count of null values in each column---------------")
+print()
 print(data.isnull().sum())
-#print(data.describe()) #summary of numeric columans
+print()
+
+
 
 #$$$$$$$$$$$$$$$$$$$$$$$$
 #plot data (diff. dataset used)
@@ -29,31 +37,23 @@ print(data.isnull().sum())
 #plot_data()
 
 
-
 #$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 #-------PRE-PROCESSING------------
 #$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
-#print("--------------data_newdf...after pre-processing (except MinPrice,MaxPrice,AvgRent---------------")
+print("--------------data pre-processing (drop nulls, handle categorical val. etc) ---------------")
+print()
 data_features_final,data_bkup=data_preprocessing(data)
 print(data_features_final)
 print()
-
-'''
-#to make it concat friendly
-print("--------df_price...Price details after re-indexing------")
-df_price=data[["MinPrice","MaxPrice","AvgRent"]]
-df_price=df_price.reset_index(drop=True) # see what happens if you dont use this
-print(df_price)
+print("--------------(After data pre-processing) df.info ---------------")
 print()
-
-#join input features
-print("---------------Input features concatenated---------------")
-data_features_final=pd.concat([data_newdf,df_price],axis=1)
-print(data_features_final)
+data_features_final.info()
 print()
-'''
-
+print("-------------(After data pre-processing) summary of numeric columns---------------")
+print()
+print(data_features_final.describe())
+print()
 
 '''
 #===================================
@@ -70,25 +70,25 @@ print(data_features_final.head())
 #============================================
 
 print("----------Convert label to numeric---------------")
-
-#use LabelEncoder
+print()
+#use LabelEncoder..returns Series object
 data_out=convert_labels_to_num(data_bkup,"LE")
 
-#use LabelBinarizer
+#use LabelBinarizer...returns numpy array
 #data_out=convert_labels_to_num(data,"LB")
-
 
 #===========================================================
 #join all the columsn into one (i:e input features + class))
 #===========================================================
 
 print("-------------Final dataset before training----------------")
+print()
 
-#If LabelEncoder used
+#using LabelEncoder used
 data_final=pd.concat([data_features_final,pd.Series(data_out)],axis=1) 
 print(data_final)
 
-#If LabelBinarizer used
+#using LabelBinarizer used
 #data_final=pd.concat([data_features_final,pd.DataFrame(data_out)],axis=1) # after using LabelBinarizer (DataFrame object)
 #print(data_final[:6,:])
 
@@ -101,16 +101,16 @@ print()
 #$$$$$$$$$$$$$$$$$$$$$
 
 print("----------------Define X and y---------------")
+print()
 
 X=data_final.iloc[:,:-1]
 print(X.head())
+print()
 
 y=data_final.iloc[:,-1]
 print(y[:5])
 print()
 
-#print(data_final.describe())
-#print(data_final[0].value_counts())
 #data_final.to_csv("exported_data_final.csv")
 
 #$$$$$$$$$$$$$$$$$$$$$$$
@@ -118,12 +118,11 @@ print()
 #$$$$$$$$$$$$$$$$$$$$$#$
 
 train_x,test_x,train_y,test_y=train_test_split(X,y,test_size=0.2,random_state=2)
-#print(type(train_x),type(train_y))
 
-print("-----------Train the model-------------")
+print("-----------Training the model-------------")
 model=LogisticRegression()
-#model=SVC()
 model.fit(train_x,train_y)
+print()
 
 #$$$$$$$$$$$$$$$$
 #---predict------
@@ -135,6 +134,9 @@ predict_train_y=model.predict(train_x)
 #run prediction on TEST data
 predict_test_y=model.predict(test_x)
 
+print("-----------Prediction completed on Train and Test data-------------")
+print()
+
 
 #$$$$$$$$$$$$$$$$$$$$$$
 #------metrics---------
@@ -142,6 +144,7 @@ predict_test_y=model.predict(test_x)
 
 # TRAIN DATA
 print("---------------Metrics for TRAIN data------------")
+print()
 print(confusion_matrix(train_y,predict_train_y))
 print()
 print("Accuracy Score : %.2f "%accuracy_score(train_y,predict_train_y))
@@ -149,6 +152,7 @@ print()
 
 # TEST DATA
 print("----------------Metrics for TEST data----------------")
+print()
 print(confusion_matrix(test_y,predict_test_y))
 print()
 print("Accuracy Score : %.2f "%accuracy_score(test_y,predict_test_y))
@@ -179,6 +183,4 @@ print()
 # ...inverse transofmr test data and see which are new data 
 # ...//try to visualize data
 # ....modularize code...func to pre-process, train , pass new data (Ex. loc,minrent,max rent) and pre-process and predict
-
-
 
