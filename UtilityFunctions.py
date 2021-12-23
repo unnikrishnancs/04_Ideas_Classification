@@ -48,16 +48,16 @@ def scale_features(data):
 	return data
 
 #convert labels/target to numeric
-def convert_labels_to_num(data,method="LB"):
+def convert_labels_to_num(data,method="LE"):
 	if method=="LB":
 		print("-----------WITH LabelBinarizer------------")
 		lb=LabelBinarizer()
 		lb.fit(data["HouseType"])
 		print(lb.classes_)
 		data=lb.transform(data["HouseType"])
-		print(type(data), data[:6])
+		print(type(data), data[:6,:])
 		#print(data)
-	else :
+	elif method=="LE":
 		print("-----------WITH LabelEncoder-------------")
 		le=LabelEncoder()
 		le.fit(data["HouseType"])

@@ -19,7 +19,7 @@ import numpy as np
 #$$$$$$$$$$$$$$$$$$$$$$$$$
 #$$$$$$$$$$$$$$$$$$$$$$$$$
 
-data=pd.read_csv("bangalore_rentdtls_updt.csv",na_values=["-"])
+data=pd.read_csv("__data__/bangalore_rentdtls_updt.csv",na_values=["-"])
 print(data.head())
 
 '''
