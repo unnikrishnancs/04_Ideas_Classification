@@ -56,6 +56,8 @@ print()
 print(data_features_final.describe())
 print()
 
+print(data_features_final.columns)
+
 msg=""
 #msg="With Feature Scaling; "
 
@@ -177,24 +179,39 @@ print()
 #$$$$$$$$$$$$$$$$$$$$$$
 #---Predict NEW data---
 #$$$$$$$$$$$$$$$$$$$$$$
-# ex. pass predict_NEW_y=model.predict(NEW)
-# where NEW will have a row of form "Locality, MinPrice, MaxPrice, AvgRent"...so you have to preprocee this row
 
 try:
-	#enter input
-	loc=input("Enter locality: ")
-	minp=input("Enter Min. Price: ")
-	maxp=input("Enter Max. Price: ")
-	avg=input("Enter Avg. Rent: ")
-	print()
-	inp={"loc":loc,"minp":minp,"maxp":maxp,"avg":avg}
-	print("You entered -> ",inp)
+	inp={'Locality_BTM Layout':0, 'Locality_Bagaluru Near Yelahanka':0,
+       'Locality_Banashankari':0, 'Locality_Banaswadi':0, 'Locality_Battarahalli':0,
+       'Locality_Begur':0, 'Locality_Bellandur':0, 'Locality_Bommanahalli':0,
+       'Locality_Brookefield':0, 'Locality_Budigere Cross':0,
+       'Locality_CV Raman Nagar':0, 'Locality_Chandapura':0,
+       'Locality_Dasarahalli on Tumkur Road':0,
+       'Locality_Electronic City Phase 1':0, 'Locality_Electronics City':0,
+       'Locality_Gottigere':0, 'Locality_HSR Layout':1, 'Locality_Harlur':0,
+       'Locality_Hebbal':0, 'Locality_Hennur':0, 'Locality_Horamavu':0,
+       'Locality_Hosa Road':0, 'Locality_Hoskote':0, 'Locality_Hulimavu':0,
+       'Locality_Indira Nagar':0, 'Locality_J. P. Nagar':0,
+       'Locality_JP Nagar Phase 7':0, 'Locality_Jakkur':0, 'Locality_Jayanagar':0,
+       'Locality_Jigani':0, 'Locality_Kalyan Nagar':0,
+       'Locality_Kannur on Thanisandra Main Road':0, 'Locality_Kasavanahalli':0,
+       'Locality_Koramangala':0, 'Locality_Krishnarajapura':0,
+       'Locality_Kumbalgodu':0, 'Locality_Mahadevapura':0, 'Locality_Marathahalli':0,
+       'Locality_Marsur':0, 'Locality_Murugeshpalya':0, 'Locality_Nagarbhavi':0,
+       'Locality_Narayanapura on Hennur Main Road':0, 'Locality_RR Nagar':0,
+       'Locality_Rajajinagar':0, 'Locality_Ramamurthy Nagar':0,
+       'Locality_Sarjapur':0, 'Locality_Sarjapur Road Post Railway Crossing':0,
+       'Locality_Subramanyapura':0, 'Locality_Talaghattapura':0,
+       'Locality_Thanisandra':0, 'Locality_Varthur':0, 'Locality_Vidyaranyapura':0,
+       'Locality_Whitefield':0, 'Locality_Whitefield Hope Farm Junction':0,
+       'Locality_Yelahanka':0, 'MinPrice':15000, 'MaxPrice':25000, 'AvgRent':20000}       
 	
-	#pre-process data
-	proc,_=data_preprocessing(pd.DataFrame(data=inp.values,columns=["loc","minp","maxp","avg"]))
-	print(proc)
+	#create datafrane
+	inp_df=pd.DataFrame(data=[inp])
+	print(inp_df)
 	
 	#predict the data
+	print("House Type Prediction -> :",model.predict(inp_df))
 
 except  Exception as ex:
 	print("Error occured :", ex)
