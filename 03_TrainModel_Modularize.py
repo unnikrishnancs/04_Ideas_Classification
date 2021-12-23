@@ -180,7 +180,24 @@ print()
 # ex. pass predict_NEW_y=model.predict(NEW)
 # where NEW will have a row of form "Locality, MinPrice, MaxPrice, AvgRent"...so you have to preprocee this row
 
+try:
+	#enter input
+	loc=input("Enter locality: ")
+	minp=input("Enter Min. Price: ")
+	maxp=input("Enter Max. Price: ")
+	avg=input("Enter Avg. Rent: ")
+	print()
+	inp={"loc":loc,"minp":minp,"maxp":maxp,"avg":avg}
+	print("You entered -> ",inp)
+	
+	#pre-process data
+	proc,_=data_preprocessing(pd.DataFrame(data=inp.values,columns=["loc","minp","maxp","avg"]))
+	print(proc)
+	
+	#predict the data
 
+except  Exception as ex:
+	print("Error occured :", ex)
 
 
 
