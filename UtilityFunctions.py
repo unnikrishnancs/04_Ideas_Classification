@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 from sklearn.preprocessing  import OneHotEncoder, LabelEncoder,LabelBinarizer
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import confusion_matrix, accuracy_score
+import numpy as np
 
 
 if __name__=="__main__":
@@ -73,14 +74,15 @@ def scale_features(data):
 
 #convert labels/target to numeric
 def convert_labels_to_num(data,method="LE"):
-	if method=="LB":
+	if method=="LB":		
 		print("-----------WITH LabelBinarizer------------")
-		lb=LabelBinarizer()
+		lb=LabelBinarizer() #sparse_output=True
+		#lb.fit(data["HouseType"])
 		lb.fit(data["HouseType"])
-		print(lb.classes_)
+		print("lb.y_type_ : ",lb.y_type_,", lb.classes_ :",lb.classes_)
 		data=lb.transform(data["HouseType"])
-		print(type(data), data[:6,:])
-		#print(data)
+		print(type(data), "\n",data[:6,:])
+		#print(data)		
 	elif method=="LE":
 		print("-----------WITH LabelEncoder-------------")
 		le=LabelEncoder()

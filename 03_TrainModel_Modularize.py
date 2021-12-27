@@ -46,6 +46,7 @@ print()
 #msg="With Feature Scaling; With LabelBinarizer"
 feat_scale="N" # 'Y' for feature scaling and 'N' to avoid feature scaling
 label_method="LB" # 'LE' for LabelEncoding and 'LB' for LabelBinarizer
+# LB not working ...wip
 
 inp_feat,labels,msg=data_preprocessing(data, feat_scale, label_method)
 
@@ -157,10 +158,10 @@ train_x,test_x,train_y,test_y=train_test_split(X,y,test_size=0.2,random_state=2)
 print("-----------Training the model-------------")
 
 #LogisticRegression
-model=LogisticRegression()
+#model=LogisticRegression()
 
 #svm
-#model=SVC()
+model=SVC()
 
 model.fit(train_x,train_y)
 print()
