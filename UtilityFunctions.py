@@ -2,6 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.preprocessing  import OneHotEncoder, LabelEncoder,LabelBinarizer
 from sklearn.preprocessing import StandardScaler
+from sklearn.metrics import confusion_matrix, accuracy_score
 
 
 if __name__=="__main__":
@@ -11,14 +12,10 @@ else:
 	print("This program (UtilityFunctions.py) was called by another program")
 	print()
 
-def predict_newdata():
-	#clean data
-	#predict data
-	#return <result>
-	pass
-	
 		
-def data_preprocessing(data):
+def data_preprocessing(data,feat_scale, label_method):
+	msg=""
+	
 	#Handle NaN value
 	data=data.dropna()
 	data.info()
@@ -32,19 +29,46 @@ def data_preprocessing(data):
 	data_new=ohe.transform(data[["Locality"]]).toarray()
 	data_newdf=pd.DataFrame(data=data_new,columns=ohe.get_feature_names_out())	
 	
-	#to make it concat friendly
-	#print("--------df_price...Price details after re-indexing------")
+	#remaining columns
 	df_price=data[["MinPrice","MaxPrice","AvgRent"]]
-	df_price=df_price.reset_index(drop=True) # see what happens if you dont use this
-
+	#to make it concat friendly		
+	df_price=df_price.reset_index(drop=True) 
+	
 	#join input features
-	data_features_final=pd.concat([data_newdf,df_price],axis=1)		
-	return data_features_final,data_bkup
+	inp_feat=pd.concat([data_newdf,df_price],axis=1)
+	
+	if feat_scale=="Y":		
+		msg="With Feature Scaling; "
+		#print("------------Scale input features-----------")
+		#print("Before Scaling")
+		#print()
+		#print(inp_feat.head())
+		inp_feat=scale_features(inp_feat)
+		#print("After Scaling")
+		#print()
+		#print(inp_feat.head())
+	else:
+		msg="No Feature Scaling; "	
+	
+	print("----------Convert label to numeric---------------")
+	print()
+	
+	if label_method=="LE":
+		#use LabelEncoder..returns Series object
+		labels=convert_labels_to_num(data_bkup)
+		msg+="With LabelEncoder; "
+	elif label_method=="LB":
+		#use LabelBinarizer...returns numpy array
+		labels=convert_labels_to_num(data_bkup,"LB")
+		msg+="With LabelBinarizer; "
+			
+	return inp_feat,labels,msg
 	
 
+#scale the feature vector X (inputs)
 def scale_features(data):
 	ss=StandardScaler()
-	data=pd.DataFrame(data=ss.fit_transform(data))
+	data=pd.DataFrame(data=ss.fit_transform(data),columns=ss.feature_names_in_)
 	return data
 
 #convert labels/target to numeric
@@ -82,5 +106,79 @@ def plot_data():
 	plt.tight_layout()
 	plt.show() 
 	
+
+#function to predict new data
+def predict_newdata(model,loc,min_p,max_p,avg):
+	try:
+		# initialize one-hot vector for "Locality" (all 0s)
+		inp={'Locality_BTM Layout':0, 'Locality_Bagaluru Near Yelahanka':0,
+		'Locality_Banashankari':0, 'Locality_Banaswadi':0, 'Locality_Battarahalli':0,
+		'Locality_Begur':0, 'Locality_Bellandur':0, 'Locality_Bommanahalli':0,
+		'Locality_Brookefield':0, 'Locality_Budigere Cross':0,
+		'Locality_CV Raman Nagar':0, 'Locality_Chandapura':0,
+		'Locality_Dasarahalli on Tumkur Road':0,
+		'Locality_Electronic City Phase 1':0, 'Locality_Electronics City':0,
+		'Locality_Gottigere':0, 'Locality_HSR Layout':0, 'Locality_Harlur':0,
+		'Locality_Hebbal':0, 'Locality_Hennur':0, 'Locality_Horamavu':0,
+		'Locality_Hosa Road':0, 'Locality_Hoskote':0, 'Locality_Hulimavu':0,
+		'Locality_Indira Nagar':0, 'Locality_J. P. Nagar':0,
+		'Locality_JP Nagar Phase 7':0, 'Locality_Jakkur':0, 'Locality_Jayanagar':0,
+		'Locality_Jigani':0, 'Locality_Kalyan Nagar':0,
+		'Locality_Kannur on Thanisandra Main Road':0, 'Locality_Kasavanahalli':0,
+		'Locality_Koramangala':0, 'Locality_Krishnarajapura':0,
+		'Locality_Kumbalgodu':0, 'Locality_Mahadevapura':0, 'Locality_Marathahalli':0,
+		'Locality_Marsur':0, 'Locality_Murugeshpalya':0, 'Locality_Nagarbhavi':0,
+		'Locality_Narayanapura on Hennur Main Road':0, 'Locality_RR Nagar':0,
+		'Locality_Rajajinagar':0, 'Locality_Ramamurthy Nagar':0,
+		'Locality_Sarjapur':0, 'Locality_Sarjapur Road Post Railway Crossing':0,
+		'Locality_Subramanyapura':0, 'Locality_Talaghattapura':0,
+		'Locality_Thanisandra':0, 'Locality_Varthur':0, 'Locality_Vidyaranyapura':0,
+		'Locality_Whitefield':0, 'Locality_Whitefield Hope Farm Junction':0,
+		'Locality_Yelahanka':0}        
+		
+		#pass NEW data for prediction...in this case ---------- locality='Yelahanka', MinPrice=15000, MaxPrice=25000, AvgRent=20000 ----------
+		inp["Locality_"+loc]=1	
+		inp["MinPrice"]=min_p
+		inp["MaxPrice"]=max_p
+		inp["AvgRent"]=avg 
+		#print(inp)
+		#print()
+		   	
+		#create datafrane
+		inp_df=pd.DataFrame(data=[inp])
+		print(inp_df)
+		print()
+		
+		#predict the data
+		print("House Type Prediction (locality=",loc,", min_price=",min_p,", max_price=",max_p,", avg_rent=", avg,") :",model.predict(inp_df),"\n \n  @@@@@@@@@@@@ Can we use LogisticRegression for multi-class ???? @@@@@@@222")
+		print()
+		print("To Do...\n inverse transform prediction \n suitability of logistic regression")
+		print()
+
+	except  Exception as ex:
+		print("Error occured :", ex)
+		print()
 	
+	
+
+def calc_metrics(type, orig,pred,msg):
+	if type=="Train":
+		# TRAIN DATA
+		print("---------------Metrics for TRAIN data: [ msg= ",msg," ]" )
+		print("Adjust the 'feat_scale' and 'label_method' variable for other options (scaling, labelencoder vs labelbinarizer)")
+		print()
+		print(confusion_matrix(orig,pred))
+		print()
+		print("Accuracy Score : %.2f "%accuracy_score(orig,pred))
+		print()
+
+	if type=="Test":
+		# TEST DATA
+		print("---------------Metrics for TEST data: [ msg= ",msg," ]" )
+		print("Adjust the 'feat_scale' and 'label_method' variable for other options (scaling, labelencoder vs labelbinarizer)")
+		print()
+		print(confusion_matrix(orig,pred))
+		print()
+		print("Accuracy Score : %.2f "%accuracy_score(orig,pred))
+		print()
 

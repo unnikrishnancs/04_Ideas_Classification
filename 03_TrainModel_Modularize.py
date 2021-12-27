@@ -1,4 +1,4 @@
-from sklearn.metrics import confusion_matrix, accuracy_score
+
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
 import numpy as np
@@ -30,7 +30,6 @@ print(data.isnull().sum())
 print()
 
 
-
 #$$$$$$$$$$$$$$$$$$$$$$$$
 #plot data (diff. dataset used)
 #$$$$$$$$$$$$$$$$$$$$$$$$
@@ -42,6 +41,16 @@ print()
 #-------PRE-PROCESSING------------
 #$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
+#msg=""
+#msg="With Feature Scaling; With LabelEncoder"
+#msg="With Feature Scaling; With LabelBinarizer"
+feat_scale="N" # 'Y' for feature scaling and 'N' to avoid feature scaling
+label_method="LB" # 'LE' for LabelEncoding and 'LB' for LabelBinarizer
+
+inp_feat,labels,msg=data_preprocessing(data, feat_scale, label_method)
+
+
+'''
 print("--------------data pre-processing (drop nulls, handle categorical val. etc) ---------------")
 print()
 data_features_final,data_bkup=data_preprocessing(data)
@@ -88,6 +97,8 @@ elif method=="LB":
 	#use LabelBinarizer...returns numpy array
 	data_out=convert_labels_to_num(data_bkup,"LB")
 	msg+="With LabelBinarizer; "
+'''
+
 
 #===========================================================
 #join all the columsn into one (i:e input features + class))
@@ -96,16 +107,16 @@ elif method=="LB":
 print("-------------Final dataset before training----------------")
 print()
 
-if method=="LE":
-	data_final=pd.concat([data_features_final,pd.Series(data_out)],axis=1) 
+if label_method=="LE":
+	data_final=pd.concat([inp_feat,pd.Series(labels)],axis=1) 
 	print(data_final.iloc[:6])
-elif method=="LB":
-	data_final=pd.concat([data_features_final,pd.DataFrame(data_out)],axis=1)
-	print(data_final.iloc[:6,:])
+elif label_method=="LB":
+	data_final=pd.concat([inp_feat,pd.DataFrame(labels)],axis=1)
+	#print(data_final.iloc[:6,:])
+	print(data_final.iloc[:6])
 
 #print(data_final.info())
 print()
-
 
 #$$$$$$$$$$$$$$$$$$$$$
 #-----Define X and y
@@ -114,13 +125,26 @@ print()
 print("----------------Define X and y---------------")
 print()
 
-X=data_final.iloc[:,:-1]
-print(X.head())
-print()
+if label_method=="LE":
+	print("X (first 5 rows)")
+	X=data_final.iloc[:,:-1]
+	print(X.head())
+	print()
 
-y=data_final.iloc[:,-1]
-print(y[:5])
-print()
+	print("y (first 5 rows)...label encoded")
+	y=data_final.iloc[:,-1]
+	print(y[:5])
+	print()
+elif label_method=="LB":
+	print("X (first 5 rows)")
+	X=data_final.iloc[:,:-3]
+	print(X.head())
+	print()
+
+	print("y (first 5 rows)...label binarizer")
+	y=data_final.iloc[:,58:61]
+	print(y[:5])
+	print()
 
 #data_final.to_csv("exported_data_final.csv")
 
@@ -133,10 +157,10 @@ train_x,test_x,train_y,test_y=train_test_split(X,y,test_size=0.2,random_state=2)
 print("-----------Training the model-------------")
 
 #LogisticRegression
-#model=LogisticRegression()
+model=LogisticRegression()
 
 #svm
-model=SVC()
+#model=SVC()
 
 model.fit(train_x,train_y)
 print()
@@ -159,62 +183,21 @@ print()
 #------metrics---------
 #$$$$$$$$$$$$$$$$$$$$$$
 
-# TRAIN DATA
-print("---------------Metrics for TRAIN data: [ ",msg," ]" )
-print()
-print(confusion_matrix(train_y,predict_train_y))
-print()
-print("Accuracy Score : %.2f "%accuracy_score(train_y,predict_train_y))
-print()
+calc_metrics("Train", train_y, predict_train_y, msg)
 
-# TEST DATA
-print("---------------Metrics for TEST data: [ ",msg," ]" )
-print()
-print(confusion_matrix(test_y,predict_test_y))
-print()
-print("Accuracy Score : %.2f "%accuracy_score(test_y,predict_test_y))
-print()
+calc_metrics("Test", test_y, predict_test_y, msg)
 
 
 #$$$$$$$$$$$$$$$$$$$$$$
 #---Predict NEW data---
 #$$$$$$$$$$$$$$$$$$$$$$
 
-try:
-	inp={'Locality_BTM Layout':0, 'Locality_Bagaluru Near Yelahanka':0,
-       'Locality_Banashankari':0, 'Locality_Banaswadi':0, 'Locality_Battarahalli':0,
-       'Locality_Begur':0, 'Locality_Bellandur':0, 'Locality_Bommanahalli':0,
-       'Locality_Brookefield':0, 'Locality_Budigere Cross':0,
-       'Locality_CV Raman Nagar':0, 'Locality_Chandapura':0,
-       'Locality_Dasarahalli on Tumkur Road':0,
-       'Locality_Electronic City Phase 1':0, 'Locality_Electronics City':0,
-       'Locality_Gottigere':0, 'Locality_HSR Layout':1, 'Locality_Harlur':0,
-       'Locality_Hebbal':0, 'Locality_Hennur':0, 'Locality_Horamavu':0,
-       'Locality_Hosa Road':0, 'Locality_Hoskote':0, 'Locality_Hulimavu':0,
-       'Locality_Indira Nagar':0, 'Locality_J. P. Nagar':0,
-       'Locality_JP Nagar Phase 7':0, 'Locality_Jakkur':0, 'Locality_Jayanagar':0,
-       'Locality_Jigani':0, 'Locality_Kalyan Nagar':0,
-       'Locality_Kannur on Thanisandra Main Road':0, 'Locality_Kasavanahalli':0,
-       'Locality_Koramangala':0, 'Locality_Krishnarajapura':0,
-       'Locality_Kumbalgodu':0, 'Locality_Mahadevapura':0, 'Locality_Marathahalli':0,
-       'Locality_Marsur':0, 'Locality_Murugeshpalya':0, 'Locality_Nagarbhavi':0,
-       'Locality_Narayanapura on Hennur Main Road':0, 'Locality_RR Nagar':0,
-       'Locality_Rajajinagar':0, 'Locality_Ramamurthy Nagar':0,
-       'Locality_Sarjapur':0, 'Locality_Sarjapur Road Post Railway Crossing':0,
-       'Locality_Subramanyapura':0, 'Locality_Talaghattapura':0,
-       'Locality_Thanisandra':0, 'Locality_Varthur':0, 'Locality_Vidyaranyapura':0,
-       'Locality_Whitefield':0, 'Locality_Whitefield Hope Farm Junction':0,
-       'Locality_Yelahanka':0, 'MinPrice':15000, 'MaxPrice':25000, 'AvgRent':20000}       
-	
-	#create datafrane
-	inp_df=pd.DataFrame(data=[inp])
-	print(inp_df)
-	
-	#predict the data
-	print("House Type Prediction -> :",model.predict(inp_df))
+loca="Yelahanka"
+min_price=15000
+max_price=25000
+avg_rent=20000
 
-except  Exception as ex:
-	print("Error occured :", ex)
-
+print("-----------New Data to be predicted--------- \n")
+predict_newdata(model,loca,min_price,max_price,avg_rent)
 
 
