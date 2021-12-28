@@ -59,9 +59,12 @@ def data_preprocessing(data,feat_scale, label_method):
 		labels=convert_labels_to_num(data_bkup)
 		msg+="With LabelEncoder; "
 	elif label_method=="LB":
+		pass
+		'''
 		#use LabelBinarizer...returns numpy array
 		labels=convert_labels_to_num(data_bkup,"LB")
 		msg+="With LabelBinarizer; "
+		'''
 			
 	return inp_feat,labels,msg
 	
@@ -74,7 +77,9 @@ def scale_features(data):
 
 #convert labels/target to numeric
 def convert_labels_to_num(data,method="LE"):
-	if method=="LB":		
+	if method=="LB":
+		pass
+		'''		
 		print("-----------WITH LabelBinarizer------------")
 		lb=LabelBinarizer() #sparse_output=True
 		#lb.fit(data["HouseType"])
@@ -82,7 +87,8 @@ def convert_labels_to_num(data,method="LE"):
 		print("lb.y_type_ : ",lb.y_type_,", lb.classes_ :",lb.classes_)
 		data=lb.transform(data["HouseType"])
 		print(type(data), "\n",data[:6,:])
-		#print(data)		
+		#print(data)	
+		'''	
 	elif method=="LE":
 		print("-----------WITH LabelEncoder-------------")
 		le=LabelEncoder()
@@ -152,9 +158,9 @@ def predict_newdata(model,loc,min_p,max_p,avg):
 		print()
 		
 		#predict the data
-		print("House Type Prediction (locality=",loc,", min_price=",min_p,", max_price=",max_p,", avg_rent=", avg,") :",model.predict(inp_df),"\n \n  @@@@@@@@@@@@ Can we use LogisticRegression for multi-class ???? @@@@@@@222")
+		print("House Type Prediction (locality=",loc,", min_price=",min_p,", max_price=",max_p,", avg_rent=", avg,") :",model.predict(inp_df))
 		print()
-		print("To Do...\n inverse transform prediction \n suitability of logistic regression \n upload dataset onto Kaggle with more rows")
+		print("To Do...\n inverse transform prediction")
 		print()
 
 	except  Exception as ex:
