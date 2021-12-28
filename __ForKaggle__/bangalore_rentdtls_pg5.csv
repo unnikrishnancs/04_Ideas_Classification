@@ -1,0 +1,181 @@
+Locality,MinPrice,MaxPrice,AvgRent,HouseType
+Basapura,4000,nan,4000,1BHK
+Basapura,15000,nan,15000,2BHK
+Basapura,14000,21300,18075,3BHK
+Gubbalala Main Road,nan,nan,-,1BHK
+Gubbalala Main Road,nan,nan,-,2BHK
+Gubbalala Main Road,nan,nan,-,3BHK
+judicial layout,nan,nan,-,1BHK
+judicial layout,15000,23000,18000,2BHK
+judicial layout,25000,nan,25000,3BHK
+Ramasandra,6500,nan,6500,1BHK
+Ramasandra,7000,nan,7000,2BHK
+Ramasandra,nan,nan,-,3BHK
+Kurubarahalli on Magadi Road,nan,nan,-,1BHK
+Kurubarahalli on Magadi Road,7500,nan,7500,2BHK
+Kurubarahalli on Magadi Road,nan,nan,-,3BHK
+Bettadasapura,5000,7500,6125,1BHK
+Bettadasapura,11000,12000,11500,2BHK
+Bettadasapura,nan,nan,-,3BHK
+Tumkur Road,nan,nan,-,1BHK
+Tumkur Road,19500,nan,19500,2BHK
+Tumkur Road,32000,nan,32000,3BHK
+Ganganagar,25000,nan,25000,1BHK
+Ganganagar,10000,nan,10000,2BHK
+Ganganagar,26000,28000,27000,3BHK
+K Channasandra,6000,nan,6000,1BHK
+K Channasandra,8500,13000,10750,2BHK
+K Channasandra,17000,nan,17000,3BHK
+SMV Layout,9500,nan,9500,1BHK
+SMV Layout,7000,11000,9000,2BHK
+SMV Layout,18000,nan,18000,3BHK
+Andrahalli,3200,50000,18300,1BHK
+Andrahalli,8500,13500,11000,2BHK
+Andrahalli,nan,nan,-,3BHK
+Doddabommasandra,5000,nan,5000,1BHK
+Doddabommasandra,10000,15000,13600,2BHK
+Doddabommasandra,nan,nan,-,3BHK
+Electronics City Phase 1 Doddathoguru,nan,nan,-,1BHK
+Electronics City Phase 1 Doddathoguru,10450,nan,10450,2BHK
+Electronics City Phase 1 Doddathoguru,nan,nan,-,3BHK
+Halanayakanahalli,10000,nan,10000,1BHK
+Halanayakanahalli,10000,20000,14250,2BHK
+Halanayakanahalli,nan,nan,-,3BHK
+Jalahalli East,7000,nan,7000,1BHK
+Jalahalli East,12500,16000,14500,2BHK
+Jalahalli East,24000,nan,24000,3BHK
+Kammmanhalli,9000,nan,9000,1BHK
+Kammmanhalli,14000,nan,14000,2BHK
+Kammmanhalli,22000,25000,23500,3BHK
+Devinagar,8000,8500,8250,1BHK
+Devinagar,10000,nan,10000,2BHK
+Devinagar,24000,nan,24000,3BHK
+Kadubeesanahalli,8500,13000,10760,1BHK
+Kadubeesanahalli,22000,nan,22000,2BHK
+Kadubeesanahalli,24000,nan,24000,3BHK
+Ramohalli,nan,nan,-,1BHK
+Ramohalli,nan,nan,-,2BHK
+Ramohalli,nan,nan,-,3BHK
+Bharat Nagar,7500,8000,7833.33,1BHK
+Bharat Nagar,11000,nan,11000,2BHK
+Bharat Nagar,nan,nan,-,3BHK
+Doddakammanahalli,5000,nan,5000,1BHK
+Doddakammanahalli,11000,13500,12250,2BHK
+Doddakammanahalli,15000,22050,18525,3BHK
+Huskuru,nan,nan,-,1BHK
+Huskuru,nan,nan,-,2BHK
+Huskuru,nan,nan,-,3BHK
+Cheemasandra,3000,6000,4500,1BHK
+Cheemasandra,10000,nan,10000,2BHK
+Cheemasandra,nan,nan,-,3BHK
+Dooravani Nagar,8000,nan,8000,1BHK
+Dooravani Nagar,7500,14000,10750,2BHK
+Dooravani Nagar,13000,16550,14775,3BHK
+Sai Baba Ashram,8000,nan,8000,1BHK
+Sai Baba Ashram,16000,23000,19500,2BHK
+Sai Baba Ashram,16000,35000,26142.86,3BHK
+Kvalasanahalli,7000,nan,7000,1BHK
+Kvalasanahalli,15700,30000,24315.38,2BHK
+Kvalasanahalli,30000,40000,37857.14,3BHK
+Sompura,nan,nan,-,1BHK
+Sompura,nan,nan,-,2BHK
+Sompura,nan,nan,-,3BHK
+Chagaletty Road,nan,nan,-,1BHK
+Chagaletty Road,nan,nan,-,2BHK
+Chagaletty Road,nan,nan,-,3BHK
+Chikbanavara,4500,7000,5750,1BHK
+Chikbanavara,15000,nan,15000,2BHK
+Chikbanavara,nan,nan,-,3BHK
+Dommasandra Village,6000,8500,6833.33,1BHK
+Dommasandra Village,12000,nan,12000,2BHK
+Dommasandra Village,nan,nan,-,3BHK
+Giri Nagar,10000,nan,10000,1BHK
+Giri Nagar,20000,nan,20000,2BHK
+Giri Nagar,30000,nan,30000,3BHK
+Iggalur,nan,nan,-,1BHK
+Iggalur,nan,nan,-,2BHK
+Iggalur,19000,nan,19000,3BHK
+Kada Agrahara,8800,11000,9900,1BHK
+Kada Agrahara,22000,nan,22000,2BHK
+Kada Agrahara,17000,18000,17500,3BHK
+Neelasandra,7500,nan,7500,1BHK
+Neelasandra,13000,14000,13500,2BHK
+Neelasandra,22000,nan,22000,3BHK
+Seshadripuram,14000,nan,14000,1BHK
+Seshadripuram,14000,35000,21000,2BHK
+Seshadripuram,15000,55000,41300,3BHK
+JP Nagar Phase 4,nan,nan,-,1BHK
+JP Nagar Phase 4,20000,33000,28200,2BHK
+JP Nagar Phase 4,32000,75000,46333.33,3BHK
+Chandra Layout Extension,8700,nan,8700,1BHK
+Chandra Layout Extension,15800,18500,17150,2BHK
+Chandra Layout Extension,15000,42000,29666.67,3BHK
+T Dasarahalli,4200,8000,6100,1BHK
+T Dasarahalli,12000,15000,13500,2BHK
+T Dasarahalli,nan,nan,-,3BHK
+Anekal Road,nan,nan,-,1BHK
+Anekal Road,nan,nan,-,2BHK
+Anekal Road,nan,nan,-,3BHK
+Kengeri Hobli,6500,7500,7000,1BHK
+Kengeri Hobli,10500,nan,10500,2BHK
+Kengeri Hobli,nan,nan,-,3BHK
+Uttarahalli Main Road,10000,nan,10000,1BHK
+Uttarahalli Main Road,nan,nan,-,2BHK
+Uttarahalli Main Road,nan,nan,-,3BHK
+Murugesh Palya,7000,8000,7500,1BHK
+Murugesh Palya,16000,nan,16000,2BHK
+Murugesh Palya,28000,50000,36666.67,3BHK
+Padmanabha Nagar,6500,nan,6500,1BHK
+Padmanabha Nagar,20000,nan,20000,2BHK
+Padmanabha Nagar,20000,nan,20000,3BHK
+Attibele Industrial Area,4000,nan,4000,1BHK
+Attibele Industrial Area,nan,nan,-,2BHK
+Attibele Industrial Area,nan,nan,-,3BHK
+Bagalur Main Road,nan,nan,-,1BHK
+Bagalur Main Road,nan,nan,-,2BHK
+Bagalur Main Road,nan,nan,-,3BHK
+Devannahalli,nan,nan,-,1BHK
+Devannahalli,12000,nan,12000,2BHK
+Devannahalli,18000,nan,18000,3BHK
+Koodusiddanapalya,nan,nan,-,1BHK
+Koodusiddanapalya,nan,nan,-,2BHK
+Koodusiddanapalya,nan,nan,-,3BHK
+Mullur,7500,8500,8000,1BHK
+Mullur,10000,13000,11333.33,2BHK
+Mullur,20000,nan,20000,3BHK
+Muneshwara Nagar,4500,12500,8620,1BHK
+Muneshwara Nagar,13500,17000,15250,2BHK
+Muneshwara Nagar,nan,nan,-,3BHK
+Srirampuram,9000,nan,9000,1BHK
+Srirampuram,11000,21000,16000,2BHK
+Srirampuram,29000,nan,29000,3BHK
+Magadi,4000,nan,4000,1BHK
+Magadi,45000,nan,45000,2BHK
+Magadi,nan,nan,-,3BHK
+Arasinakunte,6000,nan,6000,1BHK
+Arasinakunte,nan,nan,-,2BHK
+Arasinakunte,10000,nan,10000,3BHK
+Banashankari 6th Stage 6th Block,nan,nan,-,1BHK
+Banashankari 6th Stage 6th Block,16000,nan,16000,2BHK
+Banashankari 6th Stage 6th Block,nan,nan,-,3BHK
+Dwarka Nagar,3500,7500,5500,1BHK
+Dwarka Nagar,10000,nan,10000,2BHK
+Dwarka Nagar,16000,nan,16000,3BHK
+Hanumanthanagar Bangalore,9000,11000,10000,1BHK
+Hanumanthanagar Bangalore,20000,nan,20000,2BHK
+Hanumanthanagar Bangalore,30000,nan,30000,3BHK
+Manchapanahalli,nan,nan,-,1BHK
+Manchapanahalli,nan,nan,-,2BHK
+Manchapanahalli,nan,nan,-,3BHK
+Mangammanapalya,4500,17000,12500,1BHK
+Mangammanapalya,8000,25000,18633.33,2BHK
+Mangammanapalya,nan,nan,-,3BHK
+Jalahalli West,5750,7500,6562.5,1BHK
+Jalahalli West,8000,12000,10000,2BHK
+Jalahalli West,15000,nan,15000,3BHK
+Chikka Tirupathi,nan,nan,-,1BHK
+Chikka Tirupathi,nan,nan,-,2BHK
+Chikka Tirupathi,nan,nan,-,3BHK
+Chikkajala,nan,nan,-,1BHK
+Chikkajala,nan,nan,-,2BHK
+Chikkajala,nan,nan,-,3BHK

@@ -1,0 +1,181 @@
+Locality,MinPrice,MaxPrice,AvgRent,HouseType
+Panathur,8000,10000,8666.67,1BHK
+Panathur,16000,26100,21050,2BHK
+Panathur,18792,29500,23323,3BHK
+gubbalala,nan,nan,-,1BHK
+gubbalala,14000,nan,14000,2BHK
+gubbalala,nan,nan,-,3BHK
+Vibhutipura,8000,11000,9785.71,1BHK
+Vibhutipura,9500,16000,12800,2BHK
+Vibhutipura,26000,46000,32000,3BHK
+JP Nagar Phase 9,8000,14500,10875,1BHK
+JP Nagar Phase 9,22000,23000,22500,2BHK
+JP Nagar Phase 9,25000,nan,25000,3BHK
+Anagalapura Near Hennur Main Road,12000,nan,12000,1BHK
+Anagalapura Near Hennur Main Road,15000,nan,15000,2BHK
+Anagalapura Near Hennur Main Road,65000,70000,67500,3BHK
+Malleswaram,5000,15000,9285.71,1BHK
+Malleswaram,8000,19000,13125,2BHK
+Malleswaram,25000,nan,25000,3BHK
+Adugodi,7000,13500,9700,1BHK
+Adugodi,14500,19500,16333.33,2BHK
+Adugodi,23000,1.5 L,8674.07,3BHK
+Arakere,4500,13000,8583.33,1BHK
+Arakere,10000,20000,13365.71,2BHK
+Arakere,20000,70000,37500,3BHK
+Bannerughatta,4000,8000,5750,1BHK
+Bannerughatta,14000,16000,15333.33,2BHK
+Bannerughatta,27000,30000,28500,3BHK
+Margondanahalli,6500,7000,6750,1BHK
+Margondanahalli,10000,13000,11500,2BHK
+Margondanahalli,17000,nan,17000,3BHK
+Sir M V Nagar,5000,15000,827.27,1BHK
+Sir M V Nagar,7500,19000,12766.67,2BHK
+Sir M V Nagar,15000,22000,17416.67,3BHK
+Akshayanagar,6500,14000,10800,1BHK
+Akshayanagar,8000,20000,15000,2BHK
+Akshayanagar,20000,nan,20000,3BHK
+Gunjur,5200,7500,6733.33,1BHK
+Gunjur,14000,nan,14000,2BHK
+Gunjur,nan,nan,-,3BHK
+Annapurneshwari Nagar,5000,8500,7166.67,1BHK
+Annapurneshwari Nagar,11500,16500,14642.86,2BHK
+Annapurneshwari Nagar,35000,nan,35000,3BHK
+Ramagondanahalli,7000,22000,14500,1BHK
+Ramagondanahalli,15000,25000,20119.05,2BHK
+Ramagondanahalli,35000,1.2 L,92500,3BHK
+Anjanapura,7000,nan,7000,1BHK
+Anjanapura,8500,11000,9750,2BHK
+Anjanapura,18000,nan,18000,3BHK
+Kodihalli,7000,16000,10368.18,1BHK
+Kodihalli,10500,50000,22705.88,2BHK
+Kodihalli,23000,26000,24500,3BHK
+JP Nagar Phase 5,11000,nan,11000,1BHK
+JP Nagar Phase 5,14000,nan,14000,2BHK
+JP Nagar Phase 5,19200,nan,19200,3BHK
+Mallathahalli,10000,4.5 L,230000,1BHK
+Mallathahalli,10500,20000,14333.33,2BHK
+Mallathahalli,25000,28000,26000,3BHK
+Nagavara,6200,13000,8740,1BHK
+Nagavara,9500,28000,15500,2BHK
+Nagavara,13500,60000,27166.67,3BHK
+Bannerghatta,15000,nan,15000,1BHK
+Bannerghatta,14000,nan,14000,2BHK
+Bannerghatta,20000,40000,26894.74,3BHK
+Bidadi,3000,nan,3000,1BHK
+Bidadi,12000,nan,12000,2BHK
+Bidadi,nan,nan,-,3BHK
+Nayandahalli,4700,7000,5925,1BHK
+Nayandahalli,12100,14000,1333.33,2BHK
+Nayandahalli,27000,50000,38666.67,3BHK
+hebbal kempapura,6000,21000,11957.14,1BHK
+hebbal kempapura,10000,20000,15566.67,2BHK
+hebbal kempapura,10000,65000,29666.67,3BHK
+Nagawara,nan,nan,-,1BHK
+Nagawara,24000,nan,24000,2BHK
+Nagawara,18000,1.6 L,63145.05,3BHK
+Sarjapur Road,8000,nan,8000,1BHK
+Sarjapur Road,19000,nan,19000,2BHK
+Sarjapur Road,35000,nan,35000,3BHK
+Nelamangala,6000,nan,6000,1BHK
+Nelamangala,8000,40000,24666.67,2BHK
+Nelamangala,nan,nan,-,3BHK
+Chikkalasandra,6500,7500,6833.33,1BHK
+Chikkalasandra,17000,nan,17000,2BHK
+Chikkalasandra,nan,nan,-,3BHK
+Bennigana Halli,6500,nan,6500,1BHK
+Bennigana Halli,12500,nan,12500,2BHK
+Bennigana Halli,23000,45000,30800,3BHK
+Kanmanike,nan,nan,-,1BHK
+Kanmanike,9000,nan,9000,2BHK
+Kanmanike,nan,nan,-,3BHK
+Hosur Main Road,nan,nan,-,1BHK
+Hosur Main Road,nan,nan,-,2BHK
+Hosur Main Road,nan,nan,-,3BHK
+Kammanahalli,6000,50000,11875,1BHK
+Kammanahalli,11000,26000,15642.86,2BHK
+Kammanahalli,27000,nan,27000,3BHK
+Jeevan Bima Nagar,8000,13000,10000,1BHK
+Jeevan Bima Nagar,10000,45000,21857.14,2BHK
+Jeevan Bima Nagar,20000,60000,41250,3BHK
+Doddanekundi,12000,nan,12000,1BHK
+Doddanekundi,14500,nan,14500,2BHK
+Doddanekundi,20000,50000,30562.5,3BHK
+Vasanth Nagar,nan,nan,-,1BHK
+Vasanth Nagar,18000,21000,19666.67,2BHK
+Vasanth Nagar,30000,2.5 L,95157.14,3BHK
+Abbigere,5000,6000,5660,1BHK
+Abbigere,5000,19000,12000,2BHK
+Abbigere,14000,nan,14000,3BHK
+Kithaganur Colony,8000,10000,9000,1BHK
+Kithaganur Colony,8500,18000,13250,2BHK
+Kithaganur Colony,15000,18000,16500,3BHK
+Hosakerehalli,5000,7500,6250,1BHK
+Hosakerehalli,12500,15000,13583.33,2BHK
+Hosakerehalli,17500,18000,17750,3BHK
+Wilson Garden,3500,15000,11750,1BHK
+Wilson Garden,10000,25000,17107.14,2BHK
+Wilson Garden,25000,27000,26000,3BHK
+K C Krishna Reddy Layout,6500,nan,6500,1BHK
+K C Krishna Reddy Layout,7000,17000,10800,2BHK
+K C Krishna Reddy Layout,21000,nan,21000,3BHK
+Sarjapur main road,nan,nan,-,1BHK
+Sarjapur main road,nan,nan,-,2BHK
+Sarjapur main road,nan,nan,-,3BHK
+KR Puram Old Madras Road,nan,nan,-,1BHK
+KR Puram Old Madras Road,13000,18000,16333.33,2BHK
+KR Puram Old Madras Road,nan,nan,-,3BHK
+Cooke Town,10000,nan,10000,1BHK
+Cooke Town,12000,24000,18000,2BHK
+Cooke Town,25000,nan,25000,3BHK
+Jogupalya,8000,16000,11333.33,1BHK
+Jogupalya,9000,25000,17222.22,2BHK
+Jogupalya,60000,nan,60000,3BHK
+R T  Nagar,6000,11000,8144.33,1BHK
+R T  Nagar,11000,19000,15312.5,2BHK
+R T  Nagar,26000,30000,28000,3BHK
+Mathikere,5500,12500,8590.91,1BHK
+Mathikere,8000,20000,13155.56,2BHK
+Mathikere,18000,28000,23000,3BHK
+Rayasandra,4500,9500,7000,1BHK
+Rayasandra,5000,16000,10555.56,2BHK
+Rayasandra,12500,nan,12500,3BHK
+Kadugodi Industrial Area,4500,10500,6916.67,1BHK
+Kadugodi Industrial Area,8000,12000,8666.67,2BHK
+Kadugodi Industrial Area,16000,22000,19000,3BHK
+seegehalli,nan,nan,-,1BHK
+seegehalli,12000,nan,12000,2BHK
+seegehalli,25000,nan,25000,3BHK
+Doddathoguru,5000,11000,7833.33,1BHK
+Doddathoguru,13000,16000,14166.67,2BHK
+Doddathoguru,nan,nan,-,3BHK
+Jyothi Nagar,6000,nan,6000,1BHK
+Jyothi Nagar,7500,13000,9250,2BHK
+Jyothi Nagar,nan,nan,-,3BHK
+Suryanagar Phase I,nan,nan,-,1BHK
+Suryanagar Phase I,nan,nan,-,2BHK
+Suryanagar Phase I,nan,nan,-,3BHK
+Kudlu Gate,7500,16000,12833.33,1BHK
+Kudlu Gate,9500,12000,11166.67,2BHK
+Kudlu Gate,25000,nan,25000,3BHK
+Yelachanayakanapura,5000,6500,5500,1BHK
+Yelachanayakanapura,nan,nan,-,2BHK
+Yelachanayakanapura,nan,nan,-,3BHK
+RMV,nan,nan,-,1BHK
+RMV,14000,35000,24000,2BHK
+RMV,55000,1.3 L,94285.71,3BHK
+Lal Bahadur Shastri Nagar,5000,6000,5500,1BHK
+Lal Bahadur Shastri Nagar,15000,nan,15000,2BHK
+Lal Bahadur Shastri Nagar,nan,nan,-,3BHK
+Devarachikkana Halli,4350,11500,8416.67,1BHK
+Devarachikkana Halli,11000,17000,14333.33,2BHK
+Devarachikkana Halli,26000,nan,26000,3BHK
+Maruthi Sevanagar,7000,15000,10200,1BHK
+Maruthi Sevanagar,9000,17500,14180,2BHK
+Maruthi Sevanagar,15000,25000,17000,3BHK
+RMV Extension Stage 2,7000,16000,10833.33,1BHK
+RMV Extension Stage 2,20000,nan,20000,2BHK
+RMV Extension Stage 2,20000,65000,42000,3BHK
+Sanjaynagar,8500,nan,8500,1BHK
+Sanjaynagar,20000,23000,21500,2BHK
+Sanjaynagar,30000,1 L,47703.7,3BHK

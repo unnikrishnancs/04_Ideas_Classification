@@ -154,7 +154,7 @@ def predict_newdata(model,loc,min_p,max_p,avg):
 		#predict the data
 		print("House Type Prediction (locality=",loc,", min_price=",min_p,", max_price=",max_p,", avg_rent=", avg,") :",model.predict(inp_df),"\n \n  @@@@@@@@@@@@ Can we use LogisticRegression for multi-class ???? @@@@@@@222")
 		print()
-		print("To Do...\n inverse transform prediction \n suitability of logistic regression")
+		print("To Do...\n inverse transform prediction \n suitability of logistic regression \n upload dataset onto Kaggle with more rows")
 		print()
 
 	except  Exception as ex:

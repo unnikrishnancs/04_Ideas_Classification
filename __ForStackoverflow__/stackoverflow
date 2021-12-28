@@ -1,0 +1,8 @@
+I am trying to train a machine learning model that will classify a set of features (locality, minimum price ,maximum price and average rent) to a particular house type (1BHK, 2BHK, 3BHK). 1BHK meaning house with 1 bedroom, Hall and Kitchen. So my target has three classes (1BHK, 2BHK, 3BHK).
+
+If I use LabelEncoder, I am able to train the model successfully. But if I use LabelBinarizer, I get the below error :-
+
+***ValueError : y should be a 1d array, got an array of shape (106,3) instead***
+
+How do I fix this issue ?
+

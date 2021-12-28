@@ -1,0 +1,181 @@
+Locality,MinPrice,MaxPrice,AvgRent,HouseType
+Kempa Dyapanahalli,nan,nan,-,1BHK
+Kempa Dyapanahalli,nan,nan,-,2BHK
+Kempa Dyapanahalli,nan,nan,-,3BHK
+Dargajogihalli,4500,nan,4500,1BHK
+Dargajogihalli,24000,nan,24000,2BHK
+Dargajogihalli,31000,35000,32533.8,3BHK
+Kodipur,nan,nan,-,1BHK
+Kodipur,nan,nan,-,2BHK
+Kodipur,20000,nan,20000,3BHK
+Lingarajapuram,6000,10500,7875,1BHK
+Lingarajapuram,8000,18000,14800,2BHK
+Lingarajapuram,30000,nan,30000,3BHK
+Thavarekere,10000,11000,10500,1BHK
+Thavarekere,7000,nan,7000,2BHK
+Thavarekere,25085,nan,25085,3BHK
+Kodihalli on Old Airport Road,7000,nan,7000,1BHK
+Kodihalli on Old Airport Road,13000,nan,13000,2BHK
+Kodihalli on Old Airport Road,25000,nan,25000,3BHK
+Aavalahalli,4200,nan,4200,1BHK
+Aavalahalli,6000,nan,6000,2BHK
+Aavalahalli,nan,nan,-,3BHK
+hongasandra bangalore,4500,7500,6575,1BHK
+hongasandra bangalore,8000,17300,14107.69,2BHK
+hongasandra bangalore,18000,25000,23600,3BHK
+Kamala Nagar,2000,9500,5500,1BHK
+Kamala Nagar,8000,12500,10642.71,2BHK
+Kamala Nagar,25000,nan,25000,3BHK
+Sulikunte,7000,nan,7000,1BHK
+Sulikunte,8500,nan,8500,2BHK
+Sulikunte,nan,nan,-,3BHK
+Bommenahalli,8500,9000,8750,1BHK
+Bommenahalli,15000,nan,15000,2BHK
+Bommenahalli,35000,nan,35000,3BHK
+Kaggalipura,nan,nan,-,1BHK
+Kaggalipura,13000,nan,13000,2BHK
+Kaggalipura,22000,nan,22000,3BHK
+Virupakshapura,8000,nan,8000,1BHK
+Virupakshapura,11000,14500,13375,2BHK
+Virupakshapura,30000,35000,32500,3BHK
+Sanjay Nagar,5500,13000,9375,1BHK
+Sanjay Nagar,20000,nan,20000,2BHK
+Sanjay Nagar,29000,40000,36333.33,3BHK
+Kodathi,4500,10500,7811,1BHK
+Kodathi,10000,15500,12666.67,2BHK
+Kodathi,14000,34000,24000,3BHK
+Shanti Nagar,12000,20000,15000,1BHK
+Shanti Nagar,15000,40000,22357.14,2BHK
+Shanti Nagar,55000,nan,55000,3BHK
+Shivaji Nagar,8000,nan,8000,1BHK
+Shivaji Nagar,25000,35000,28333.33,2BHK
+Shivaji Nagar,22000,47000,34500,3BHK
+Domlur,15000,16000,15666.67,1BHK
+Domlur,32000,50000,41000,2BHK
+Domlur,55000,nan,55000,3BHK
+Benson Town,8500,nan,8500,1BHK
+Benson Town,14000,19000,16166.67,2BHK
+Benson Town,18000,85000,49333.33,3BHK
+Narayanaghatta,nan,nan,-,1BHK
+Narayanaghatta,11000,nan,11000,2BHK
+Narayanaghatta,nan,nan,-,3BHK
+Amruthahalli,7800,12000,9371.43,1BHK
+Amruthahalli,11500,18000,15833.33,2BHK
+Amruthahalli,11000,30000,20500,3BHK
+Byrathi,7000,13500,9687.5,1BHK
+Byrathi,12000,16000,14333.33,2BHK
+Byrathi,35000,40000,38333.33,3BHK
+Sarjapur Road Till Wipro,nan,nan,-,1BHK
+Sarjapur Road Till Wipro,20000,45000,26266.67,2BHK
+Sarjapur Road Till Wipro,54000,nan,54000,3BHK
+Hosur,12300,nan,12300,1BHK
+Hosur,nan,nan,-,2BHK
+Hosur,nan,nan,-,3BHK
+Cox Town,3250,15000,13791.67,1BHK
+Cox Town,17500,25000,21500,2BHK
+Cox Town,28000,nan,28000,3BHK
+Challaghatta,13000,nan,13000,1BHK
+Challaghatta,19000,nan,19000,2BHK
+Challaghatta,50000,nan,50000,3BHK
+Jnana Ganga Nagar,6250,10750,8500,1BHK
+Jnana Ganga Nagar,10750,15000,12875,2BHK
+Jnana Ganga Nagar,nan,nan,-,3BHK
+Kothanur,8000,9000,8666.67,1BHK
+Kothanur,12000,18000,14500,2BHK
+Kothanur,18000,nan,18000,3BHK
+Ullal Uppanagar,6000,7000,6500,1BHK
+Ullal Uppanagar,13000,nan,13000,2BHK
+Ullal Uppanagar,18000,nan,18000,3BHK
+Chikballapur,5000,6000,5533.33,1BHK
+Chikballapur,17000,nan,17000,2BHK
+Chikballapur,nan,nan,-,3BHK
+Bagalakunte,6500,nan,6500,1BHK
+Bagalakunte,10000,nan,10000,2BHK
+Bagalakunte,nan,nan,-,3BHK
+Kaval Byrasandra,6000,8000,7000,1BHK
+Kaval Byrasandra,10000,19000,14000,2BHK
+Kaval Byrasandra,18000,23000,20500,3BHK
+KPC Layout,9500,12500,11250,1BHK
+KPC Layout,12500,17500,15000,2BHK
+KPC Layout,25000,nan,25000,3BHK
+Sunkadakatte,3500,7000,4800,1BHK
+Sunkadakatte,15000,nan,15000,2BHK
+Sunkadakatte,10000,nan,10000,3BHK
+Avalahalli,6500,nan,6500,1BHK
+Avalahalli,10000,nan,10000,2BHK
+Avalahalli,nan,nan,-,3BHK
+Kannur,5500,nan,5500,1BHK
+Kannur,13000,nan,13000,2BHK
+Kannur,nan,nan,-,3BHK
+JP Nagar Phase 6,5500,nan,5500,1BHK
+JP Nagar Phase 6,90000,nan,90000,2BHK
+JP Nagar Phase 6,24000,42000,34750,3BHK
+Thanisandra Main Road,nan,nan,-,1BHK
+Thanisandra Main Road,nan,nan,-,2BHK
+Thanisandra Main Road,nan,nan,-,3BHK
+JP Nagar Phase 1,5500,14000,10500,1BHK
+JP Nagar Phase 1,16000,44000,25318.18,2BHK
+JP Nagar Phase 1,30000,60000,44550,3BHK
+RT Nager,6500,13500,10216.67,1BHK
+RT Nager,12500,13500,13000,2BHK
+RT Nager,20000,nan,20000,3BHK
+Sidedahalli,3000,6000,4500,1BHK
+Sidedahalli,10000,nan,10000,2BHK
+Sidedahalli,nan,nan,-,3BHK
+Singanayakanahalli,4000,5000,4500,1BHK
+Singanayakanahalli,7500,10000,8750,2BHK
+Singanayakanahalli,nan,nan,-,3BHK
+Ashok Nagar,12000,nan,12000,1BHK
+Ashok Nagar,16500,17000,16750,2BHK
+Ashok Nagar,45000,nan,45000,3BHK
+Bengaluru Kanakapura Road,nan,nan,-,1BHK
+Bengaluru Kanakapura Road,nan,nan,-,2BHK
+Bengaluru Kanakapura Road,nan,nan,-,3BHK
+Budigere Road,nan,nan,-,1BHK
+Budigere Road,nan,nan,-,2BHK
+Budigere Road,nan,nan,-,3BHK
+Padmanabhanagar,5000,8000,6500,1BHK
+Padmanabhanagar,11500,17000,13333.33,2BHK
+Padmanabhanagar,21000,nan,21000,3BHK
+R.K. Hegde Nagar,7500,9000,8000,1BHK
+R.K. Hegde Nagar,9000,28000,14625,2BHK
+R.K. Hegde Nagar,17500,nan,17500,3BHK
+Hurulichikanahalli,3500,nan,3500,1BHK
+Hurulichikanahalli,6500,nan,6500,2BHK
+Hurulichikanahalli,nan,nan,-,3BHK
+Nandini Layout,4000,6000,5000,1BHK
+Nandini Layout,8000,15000,12000,2BHK
+Nandini Layout,27000,48000,37500,3BHK
+Attiguppe,5500,8000,6750,1BHK
+Attiguppe,5000,30000,16200,2BHK
+Attiguppe,16500,17000,16750,3BHK
+Junnasandra,nan,nan,-,1BHK
+Junnasandra,22000,nan,22000,2BHK
+Junnasandra,40000,nan,40000,3BHK
+Parappana Agrahara,6000,9000,7648.57,1BHK
+Parappana Agrahara,12000,13500,12750,2BHK
+Parappana Agrahara,30450,nan,30450,3BHK
+Bangalore City Municipal Corporation Layout,3 L,nan,300000,1BHK
+Bangalore City Municipal Corporation Layout,8500,18000,13250,2BHK
+Bangalore City Municipal Corporation Layout,17500,nan,17500,3BHK
+Choodasandra,3500,9000,7416.67,1BHK
+Choodasandra,6500,15000,1062.5,2BHK
+Choodasandra,8500,nan,8500,3BHK
+Doddakannelli,9500,13000,11125,1BHK
+Doddakannelli,13500,1 L,22136.36,2BHK
+Doddakannelli,26500,nan,26500,3BHK
+Gudighattanahalli,nan,nan,-,1BHK
+Gudighattanahalli,17000,nan,17000,2BHK
+Gudighattanahalli,14500,nan,14500,3BHK
+Narayanapura Hennur Main Road,10000,nan,10000,1BHK
+Narayanapura Hennur Main Road,10000,16000,13000,2BHK
+Narayanapura Hennur Main Road,21000,22000,21500,3BHK
+TC Palya Road,4000,nan,4000,1BHK
+TC Palya Road,nan,nan,-,2BHK
+TC Palya Road,nan,nan,-,3BHK
+Hemmigepura,4500,nan,4500,1BHK
+Hemmigepura,10000,nan,10000,2BHK
+Hemmigepura,nan,nan,-,3BHK
+Sathnur Village,5000,nan,5000,1BHK
+Sathnur Village,10000,nan,10000,2BHK
+Sathnur Village,nan,nan,-,3BHK
