@@ -48,7 +48,7 @@ if label_method=="LB":
 #-------PRE-PROCESSING------------
 #$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
-inp_feat,labels,msg=data_preprocessing(data, feat_scale, label_method)
+inp_feat,labels,msg,l2n=data_preprocessing(data, feat_scale, label_method)
 
 #join all the columsn into one (i:e input features + class))
 
@@ -154,12 +154,30 @@ calc_metrics("Test", test_y, predict_test_y, msg)
 #---Predict NEW data---
 #$$$$$$$$$$$$$$$$$$$$$$
 
-loca="Yelahanka"
-min_price=15000
-max_price=25000
-avg_rent=20000
+loca="Kalyan Nagar"
+
+'''
+#2BHK
+min_price=8500
+max_price=20000
+avg_rent=11642.86
+
+#1BHK
+min_price=5000
+max_price=14000
+avg_rent=9000
+'''
+
+#3BHK
+min_price=20000
+max_price=45000
+avg_rent=35000
+
+min_price=20000
+max_price=30000
+avg_rent=0
 
 print("-----------New Data to be predicted--------- \n")
-predict_newdata(model,loca,min_price,max_price,avg_rent)
+predict_newdata(model,loca,min_price,max_price,avg_rent,l2n)
 
 

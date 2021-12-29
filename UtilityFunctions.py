@@ -19,7 +19,7 @@ def data_preprocessing(data,feat_scale, label_method):
 	
 	#Handle NaN value
 	data=data.dropna()
-	data.info()
+	#data.info()
 	data_bkup=data # this wiill be used later for converting labels to numeric
 	print()
 	
@@ -56,17 +56,17 @@ def data_preprocessing(data,feat_scale, label_method):
 	
 	if label_method=="LE":
 		#use LabelEncoder..returns Series object
-		labels=convert_labels_to_num(data_bkup)
+		labels,l2n=convert_labels_to_num(data_bkup)
 		msg+="With LabelEncoder; "
 	elif label_method=="LB":
 		pass
 		'''
 		#use LabelBinarizer...returns numpy array
-		labels=convert_labels_to_num(data_bkup,"LB")
+		labels,l2n=convert_labels_to_num(data_bkup,"LB")
 		msg+="With LabelBinarizer; "
 		'''
-			
-	return inp_feat,labels,msg
+		
+	return inp_feat,labels,msg,l2n
 	
 
 #scale the feature vector X (inputs)
@@ -81,24 +81,24 @@ def convert_labels_to_num(data,method="LE"):
 		pass
 		'''		
 		print("-----------WITH LabelBinarizer------------")
-		lb=LabelBinarizer() #sparse_output=True
-		#lb.fit(data["HouseType"])
-		lb.fit(data["HouseType"])
-		print("lb.y_type_ : ",lb.y_type_,", lb.classes_ :",lb.classes_)
-		data=lb.transform(data["HouseType"])
+		l2n=LabelBinarizer() #sparse_output=True
+		#l2n.fit(data["HouseType"])
+		l2n.fit(data["HouseType"])
+		print("l2n.y_type_ : ",l2n.y_type_,", l2n.classes_ :",l2n.classes_)
+		data=l2n.transform(data["HouseType"])
 		print(type(data), "\n",data[:6,:])
 		#print(data)	
 		'''	
 	elif method=="LE":
 		print("-----------WITH LabelEncoder-------------")
-		le=LabelEncoder()
-		le.fit(data["HouseType"])
-		print(le.classes_)
-		data=le.transform(data["HouseType"])
+		l2n=LabelEncoder()
+		l2n.fit(data["HouseType"])
+		print(l2n.classes_)
+		data=l2n.transform(data["HouseType"])
 		print(type(data), data[:6])
 		
 	print()
-	return data
+	return data,l2n
 
 #plot the data	...DIFFETENT DATASET USED
 def plot_data():	
@@ -116,7 +116,7 @@ def plot_data():
 	
 
 #function to predict new data
-def predict_newdata(model,loc,min_p,max_p,avg):
+def predict_newdata(model,loc,min_p,max_p,avg,l2n):
 	try:
 		# initialize one-hot vector for "Locality" (all 0s)
 		inp={'Locality_BTM Layout':0, 'Locality_Bagaluru Near Yelahanka':0,
@@ -158,9 +158,8 @@ def predict_newdata(model,loc,min_p,max_p,avg):
 		print()
 		
 		#predict the data
-		print("House Type Prediction (locality=",loc,", min_price=",min_p,", max_price=",max_p,", avg_rent=", avg,") :",model.predict(inp_df))
-		print()
-		print("To Do...\n inverse transform prediction")
+		#print("House Type Prediction (locality=",loc,", min_price=",min_p,", max_price=",max_p,", avg_rent=", avg,") :",model.predict(inp_df))
+		print("House Type Prediction (locality=",loc,", min_price=",min_p,", max_price=",max_p,", avg_rent=", avg,") :",l2n.inverse_transform(model.predict(inp_df)))
 		print()
 
 	except  Exception as ex:
