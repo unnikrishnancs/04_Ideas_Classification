@@ -14,7 +14,7 @@ import sys
 #import data from csv file
 #$$$$$$$$$$$$$$$$$$$$$$$$$
 
-data=pd.read_csv("__data__/bangalore_rentdtls_updt.csv",na_values=["-"])
+data=pd.read_csv("data/bangalore_rentdtls_updt.csv",na_values=["-"])
 
 print("-------------Top 5 rows---------------")
 print()
