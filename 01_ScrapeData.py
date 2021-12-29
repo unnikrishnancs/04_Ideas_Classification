@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 import pandas as pd
 import numpy as np
 
+
 #Open the page
 page=requests.get("https://www.makaan.com/price-trends/property-rates-for-rent-in-bangalore")
 print("Response Code ==>",page.status_code)
